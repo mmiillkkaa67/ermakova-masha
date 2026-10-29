@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "author": "Ivanov Ivan",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 300,
+      "left": -160,
+      "attrs": {
+        "temperature": "18"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 300,
+      "left": 60,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": 290,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 40,
+      "left": 380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -130,
+      "left": 180,
+      "attrs": {
+        "color": "green",
+        "label": "HL1"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -80,
+      "left": 90,
+      "attrs": {
+        "value": "200"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -130,
+      "left": 520,
+      "attrs": {
+        "color": "red",
+        "label": "Обогреватель HL2"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -80,
+      "left": 440,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "uno:5V",
+      "ntc1:VCC",
+      "red",
+      []
+    ],
+    [
+      "uno:GND.2",
+      "ntc1:GND",
+      "black",
+      []
+    ],
+    [
+      "ntc1:OUT",
+      "uno:A0",
+      "green",
+      []
+    ],
+    [
+      "uno:5V",
+      "ldr1:VCC",
+      "red",
+      []
+    ],
+    [
+      "uno:GND.2",
+      "ldr1:GND",
+      "black",
+      []
+    ],
+    [
+      "ldr1:AO",
+      "uno:A1",
+      "orange",
+      []
+    ],
+    [
+      "uno:5V",
+      "pir1:VCC",
+      "red",
+      []
+    ],
+    [
+      "uno:GND.3",
+      "pir1:GND",
+      "black",
+      []
+    ],
+    [
+      "pir1:OUT",
+      "uno:2",
+      "blue",
+      []
+    ],
+    [
+      "uno:5V",
+      "relay1:VCC",
+      "red",
+      []
+    ],
+    [
+      "uno:GND.1",
+      "relay1:GND",
+      "black",
+      []
+    ],
+    [
+      "uno:7",
+      "relay1:IN",
+      "violet",
+      []
+    ],
+    [
+      "uno:8",
+      "r1:2",
+      "green",
+      []
+    ],
+    [
+      "r1:1",
+      "led1:A",
+      "green",
+      []
+    ],
+    [
+      "led1:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:5V",
+      "relay1:COM",
+      "red",
+      []
+    ],
+    [
+      "relay1:NO",
+      "r2:1",
+      "red",
+      []
+    ],
+    [
+      "r2:2",
+      "led2:A",
+      "red",
+      []
+    ],
+    [
+      "led2:C",
+      "uno:GND.1",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

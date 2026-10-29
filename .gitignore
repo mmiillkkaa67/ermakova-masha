@@ -1,0 +1,5 @@
+db/variant.db
+db/load.sql
+PortableGit/
+nodejs/
+sqlite3/
